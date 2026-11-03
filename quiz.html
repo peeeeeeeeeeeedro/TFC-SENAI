@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quiz interativo sobre Outubro Rosa e Novembro Azul: teste seus conhecimentos sobre prevenção, sinais de alerta e exames, com explicações a cada resposta.">
+  <meta name="theme-color" content="#8e5bd6">
+  <title>Quiz interativo — Laço de Cuidado</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2.5c-2.2 2.7-3.3 4.7-3.3 6.6 0 3.8 6.6 6.2 6.6 9.8 0 1.9-1.1 3.9-3.3 6.1"></path>
+            <path d="M12 2.5c2.2 2.7 3.3 4.7 3.3 6.6 0 3.8-6.6 6.2-6.6 9.8 0 1.9 1.1 3.9 3.3 6.1"></path>
+          </svg>
+        </span>
+        <span class="brand-text">
+          Laço de Cuidado
+          <span>Outubro Rosa &amp; Novembro Azul</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
+        <span class="sr-only">Abrir menu</span>
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
+
+      <nav class="site-nav" id="menu-principal" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="outubro-rosa.html">Outubro Rosa</a></li>
+          <li><a href="novembro-azul.html">Novembro Azul</a></li>
+          <li><a href="quiz.html" class="nav-cta" aria-current="page">Quiz</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" class="quiz-page">
+
+    <section class="hero hero--page" style="padding-bottom:1.5rem">
+      <div class="container" style="max-width:780px;text-align:center">
+        <nav class="breadcrumb" aria-label="Você está aqui" style="justify-content:center">
+          <ol style="justify-content:center">
+            <li><a href="index.html">Início</a></li>
+            <li aria-current="page">Quiz</li>
+          </ol>
+        </nav>
+        <p class="tag"><span class="dot" aria-hidden="true"></span> Quiz interativo</p>
+        <h1 style="font-size:clamp(1.9rem,4.4vw,2.9rem)">Quanto você sabe sobre prevenção?</h1>
+        <p class="lead" style="margin-inline:auto">
+          Perguntas sobre Outubro Rosa, Novembro Azul e hábitos saudáveis.
+          A cada resposta você recebe uma explicação — errar também faz parte do aprendizado.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:1rem;padding-bottom:4rem">
+      <div class="container">
+        <div class="quiz-shell">
+          <div class="quiz-card">
+
+            <!-- TELA INICIAL -->
+            <section id="tela-inicio" class="screen quiz-intro" aria-labelledby="intro-titulo">
+              <div class="card-icon" aria-hidden="true">
+                <svg class="ico" viewBox="0 0 24 24">
+                  <path d="M9 18h6M10 21h4"></path>
+                  <path d="M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.9V16h5v-.2c0-.8.4-1.5 1-1.9A6 6 0 0 0 12 3Z"></path>
+                </svg>
+              </div>
+              <h2 id="intro-titulo">Pronto para começar?</h2>
+              <p>O quiz tem 13 perguntas de múltipla escolha. Você pode refazer quantas vezes quiser — as perguntas e alternativas são embaralhadas a cada tentativa.</p>
+
+              <ul class="quiz-meta-list">
+                <li>
+                  <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+                  Duração aproximada: 4 a 6 minutos
+                </li>
+                <li>
+                  <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+                  Feedback imediato com explicação
+                </li>
+                <li>
+                  <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"></path></svg>
+                  Seu melhor resultado fica salvo neste navegador
+                </li>
+              </ul>
+
+              <button class="btn btn--primary btn--block" type="button" id="btn-comecar">
+                Começar o quiz
+                <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+
+              <p class="best-score" id="melhor-pontuacao" hidden></p>
+            </section>
+
+            <!-- TELA DE PERGUNTA -->
+            <section id="tela-pergunta" class="screen" aria-labelledby="pergunta-texto" hidden>
+              <div class="quiz-progress">
+                <div class="quiz-progress-top">
+                  <span id="progresso-texto">Pergunta 1 de 13</span>
+                  <span id="progresso-pct">0%</span>
+                </div>
+                <div class="quiz-progress-track" id="progresso-barra-wrap" role="progressbar"
+                     aria-label="Progresso do quiz" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                  <div class="quiz-progress-bar" id="progresso-barra"></div>
+                </div>
+              </div>
+
+              <span class="quiz-tag quiz-tag--geral" id="pergunta-tema">Prevenção e saúde</span>
+              <h2 class="quiz-question" id="pergunta-texto" tabindex="-1"></h2>
+
+              <ul class="quiz-options" id="pergunta-opcoes"></ul>
+
+              <div class="quiz-feedback" id="feedback" role="status" aria-live="polite"></div>
+
+              <div class="quiz-actions">
+                <span class="quiz-hint" id="quiz-dica">Selecione uma alternativa.</span>
+                <button class="btn btn--primary" type="button" id="btn-proxima" hidden>
+                  Próxima pergunta
+                  <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </button>
+              </div>
+            </section>
+
+            <!-- TELA DE RESULTADO -->
+            <section id="tela-resultado" class="screen result" aria-labelledby="resultado-titulo" hidden>
+              <div class="result-ring" id="resultado-anel">
+                <div class="result-ring-inner">
+                  <strong id="resultado-acertos">0</strong>
+                  <span>de <span id="resultado-total">0</span> acertos</span>
+                </div>
+              </div>
+
+              <p class="eyebrow" style="justify-content:center">Seu resultado</p>
+              <h2 id="resultado-titulo" tabindex="-1">Resultado</h2>
+              <p class="result-message" id="resultado-mensagem"></p>
+
+              <div class="result-review">
+                <h3 id="revisao-titulo">Revisão</h3>
+                <ul class="review-list" id="revisao-lista"></ul>
+              </div>
+
+              <div class="result-actions">
+                <button class="btn btn--primary" type="button" id="btn-refazer">
+                  <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 3v5h5"></path></svg>
+                  Refazer o quiz
+                </button>
+                <a class="btn btn--ghost" href="index.html">Voltar ao início</a>
+              </div>
+            </section>
+
+          </div>
+
+          <p class="quiz-hint" style="text-align:center;margin-top:1.25rem">
+            Conteúdo educativo. Em caso de dúvidas sobre a sua saúde, procure um profissional.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2.5c-2.2 2.7-3.3 4.7-3.3 6.6 0 3.8 6.6 6.2 6.6 9.8 0 1.9-1.1 3.9-3.3 6.1"></path>
+                <path d="M12 2.5c2.2 2.7 3.3 4.7 3.3 6.6 0 3.8-6.6 6.2-6.6 9.8 0 1.9 1.1 3.9 3.3 6.1"></path>
+              </svg>
+            </span>
+            <span class="brand-text">
+              Laço de Cuidado
+              <span>Outubro Rosa &amp; Novembro Azul</span>
+            </span>
+          </a>
+          <p>Informação acessível para cuidar da saúde com consciência, sem tabus e sem alarmismo.</p>
+          <p class="disclaimer">Conteúdo educativo. Não substitui consulta, diagnóstico ou tratamento médico. Procure sempre um profissional de saúde.</p>
+        </div>
+
+        <div>
+          <h3>Navegue</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="outubro-rosa.html">Outubro Rosa</a></li>
+            <li><a href="novembro-azul.html">Novembro Azul</a></li>
+            <li><a href="quiz.html">Quiz interativo</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Em caso de dúvida</h3>
+          <ul class="footer-links">
+            <li><a href="https://www.gov.br/saude" target="_blank" rel="noopener noreferrer">Ministério da Saúde</a></li>
+            <li><a href="https://www.inca.gov.br" target="_blank" rel="noopener noreferrer">INCA</a></li>
+            <li><a href="https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/c/cancer-de-mama" target="_blank" rel="noopener noreferrer">Câncer de mama — gov.br</a></li>
+            <li><a href="https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/c/cancer-de-prostata" target="_blank" rel="noopener noreferrer">Câncer de próstata — gov.br</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span data-ano>2026</span> Laço de Cuidado. Projeto educativo.</p>
+        <p>Feito para informar, acolher e prevenir.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/perguntas.js" defer></script>
+  <script src="js/quiz.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
