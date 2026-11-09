@@ -2,8 +2,7 @@
 
 Site educativo de conscientização sobre o **Outubro Rosa** (câncer de mama) e o **Novembro Azul** (saúde do homem / câncer de próstata), com um **quiz interativo** de perguntas mistas.
 
-Projeto em **HTML + CSS + JavaScript puro**: não precisa de instalação, build ou internet para funcionar (exceto os links externos do rodapé).
-
+Projeto em **HTML + CSS + JavaScript**.
 ---
 
 ## 1. Visão e objetivos
@@ -26,41 +25,34 @@ Projeto em **HTML + CSS + JavaScript puro**: não precisa de instalação, build
 - Estudantes, professores e agentes de saúde que precisem de material de apoio.
 - Familiares que queiram entender como apoiar alguém.
 
-**Tom de voz:** informativo, acolhedor, sem alarmismo e sem julgamento. Nada de promessas de cura.
-
 ---
 
 ## 2. Arquitetura da informação
 
 ```
 Início
-├── Outubro Rosa
-│   ├── O que é a campanha
-│   ├── O que é o câncer de mama
-│   ├── Sinais de alerta
-│   ├── Fatores de risco
-│   ├── Prevenção e rastreamento
-│   ├── Mitos e verdades
-│   └── Quando procurar ajuda
-├── Novembro Azul
-│   ├── O que é a campanha
-│   ├── O que é o câncer de próstata
-│   ├── Sinais e sintomas
-│   ├── Fatores de risco
-│   ├── Como é feita a investigação
-│   ├── Saúde integral do homem
-│   ├── Mitos e verdades
-│   └── Quando procurar ajuda
-└── Quiz
-    ├── Tela inicial (regras + melhor resultado)
-    ├── Perguntas com feedback imediato
-    └── Resultado com revisão e opção de refazer
+--- Outubro Rosa
+_ O que é a campanha
+_ O que é o câncer de mama
+_ Sinais de alerta
+_ Fatores de risco
+_ Prevenção e rastreamento
+_ Mitos e verdades
+_ Quando procurar ajuda
+--- Novembro Azul
+_ O que é a campanha
+_ O que é o câncer de próstata
+_ Sinais e sintomas
+_ Fatores de risco
+_ Como é feita a investigação
+_ Saúde integral do homem
+_ Mitos e verdades
+_ Quando procurar ajuda
+--- Quiz
+_ Tela inicial (regras + melhor resultado)
+_ Perguntas com feedback imediato
+_ Resultado com revisão e opção de refazer
 ```
-
-**Jornada principal:** Início → escolhe uma campanha → lê o conteúdo → é convidado ao quiz → responde → recebe o resultado → revisa o que errou → refaz ou volta ao conteúdo.
-
-**Navegação:** header fixo com 4 itens (Início, Outubro Rosa, Novembro Azul, Quiz em destaque). No mobile, menu hambúrguer acessível. O item da página atual recebe `aria-current="page"`.
-
 ---
 
 ## 3. Estrutura do projeto
@@ -78,11 +70,7 @@ Projeto Padrão/
 │   ├── perguntas.js      # Banco de perguntas (conteúdo editável)
 │   └── quiz.js           # Motor do quiz
 └── README.md
-```
-
-Não há dependências externas, CDN, fontes remotas ou etapas de build.
-
----
+````
 
 ## 4. Wireframes (esboço)
 
